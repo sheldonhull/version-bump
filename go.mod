@@ -1,4 +1,4 @@
-module version-bump
+module github.com/sheldonhull/version-bump
 
 go 1.17
 

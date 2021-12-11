@@ -3,7 +3,8 @@ package langs_test
 import (
 	"fmt"
 	"testing"
-	"version-bump/langs"
+
+	"github.com/sheldonhull/version-bump/langs"
 
 	changelog "github.com/anton-yurchenko/go-changelog"
 	"github.com/stretchr/testify/assert"
@@ -12,18 +13,18 @@ import (
 func TestNew(t *testing.T) {
 	a := assert.New(t)
 
-	var dockerRegex = []string{
+	dockerRegex := []string{
 		fmt.Sprintf("^LABEL .*org.opencontainers.image.version['\"= ]*[vV]?(?P<version>%v)['\"]?.*", changelog.SemVerRegex),
 		fmt.Sprintf("^\\s*['\"]?org.opencontainers.image.version['\"= ]*[vV]?(?P<version>%v)['\"]?.*", changelog.SemVerRegex),
 	}
 
-	var golangRegex = []string{
+	golangRegex := []string{
 		fmt.Sprintf("^const [vV]ersion\\s*string = \"[vV]?(?P<version>%v)\"", changelog.SemVerRegex),
 		fmt.Sprintf("^const [vV]ersion := \"[vV]?(?P<version>%v)\"", changelog.SemVerRegex),
 		fmt.Sprintf("^\\s*[vV]ersion\\s*string = \"[vV]?(?P<version>%v)\"", changelog.SemVerRegex),
 	}
 
-	var javaScriptJSONFields = []string{
+	javaScriptJSONFields := []string{
 		"version",
 	}
 

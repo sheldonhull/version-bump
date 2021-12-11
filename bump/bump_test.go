@@ -4,16 +4,15 @@ import (
 	"fmt"
 	"path"
 	"testing"
-	"version-bump/bump"
-	"version-bump/mocks"
-
-	"github.com/pkg/errors"
 
 	"github.com/go-git/go-billy/v5/memfs"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/cache"
 	"github.com/go-git/go-git/v5/storage/filesystem"
+	"github.com/pkg/errors"
+	"github.com/sheldonhull/version-bump/bump"
+	"github.com/sheldonhull/version-bump/mocks"
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -127,11 +126,11 @@ directories = ['dir1','dir2']`,
 				Content: `[docker]
 enabled = true
 directories = [ '.', 'tools/qa' ]
-				
+
 [go]
 enabled = true
 directories = [ 'server', 'tools/cli', 'tools/qa' ]
-				
+
 [javascript]
 enabled = true
 directories = [ 'client' ]`,
@@ -159,12 +158,12 @@ directories = [ 'client' ]`,
 enabled = true
 directories = [ '.', 'tools/qa' ]
 exclude_files = [ 'tools/qa/Dockerfile' ]
-				
+
 [go]
 enabled = true
 directories = [ 'server', 'tools/cli', 'tools/qa' ]
 exclude_files = [ 'tools/cli/main_test.go' ]
-				
+
 [javascript]
 enabled = true
 directories = [ 'client' ]
@@ -836,7 +835,7 @@ ENTRYPOINT [ "/app" ]`,
 			MockAddError:       nil,
 			MockCommitError:    errors.New("reason"),
 			MockCreateTagError: nil,
-			ExpectedError:      "error commiting changes: error commiting changes: reason",
+			ExpectedError:      "error committing changes: error committing changes: reason",
 		},
 		"Exclude Files": {
 			Version: "2.0.0",
@@ -884,9 +883,9 @@ ENTRYPOINT [ "/app" ]`,
 							Content: `package main
 
 import "fmt"
-							
+
 const Version string = "1.2.3"
-							
+
 func main() {
 	fmt.Println(Version)
 }`,

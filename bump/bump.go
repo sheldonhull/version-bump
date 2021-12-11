@@ -6,9 +6,6 @@ import (
 	"regexp"
 	"strings"
 
-	"version-bump/console"
-	"version-bump/langs"
-
 	semver "github.com/Masterminds/semver/v3"
 	"github.com/go-git/go-billy/v5"
 	git "github.com/go-git/go-git/v5"
@@ -17,6 +14,8 @@ import (
 	"github.com/go-git/go-git/v5/storage/filesystem"
 	toml "github.com/pelletier/go-toml/v2"
 	"github.com/pkg/errors"
+	"github.com/sheldonhull/version-bump/console"
+	"github.com/sheldonhull/version-bump/langs"
 	"github.com/spf13/afero"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
@@ -193,7 +192,7 @@ func (b *Bump) Bump(action int) error {
 		console.CommitingChanges()
 
 		if err := b.Git.Save(files, version); err != nil {
-			return errors.Wrap(err, "error commiting changes")
+			return errors.Wrap(err, "error committing changes")
 		}
 	}
 

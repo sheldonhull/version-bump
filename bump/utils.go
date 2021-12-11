@@ -71,7 +71,7 @@ func readFile(fs afero.Fs, filepath string) ([]string, error) {
 }
 
 func writeFile(fs afero.Fs, filepath string, content string) error {
-	file, err := fs.OpenFile(filepath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0755)
+	file, err := fs.OpenFile(filepath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0o755)
 	if err != nil {
 		return errors.Wrap(err, "error opening a file")
 	}

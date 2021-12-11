@@ -1,6 +1,6 @@
 package main
 
-import "version-bump/cmd"
+import "github.com/sheldonhull/version-bump/cmd"
 
 func main() {
 	cmd.Execute()

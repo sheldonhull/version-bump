@@ -8,8 +8,9 @@ import (
 	"path"
 	"sync"
 	"time"
-	"version-bump/bump"
-	"version-bump/console"
+
+	"github.com/sheldonhull/version-bump/bump"
+	"github.com/sheldonhull/version-bump/console"
 
 	"github.com/go-git/go-billy/v5/osfs"
 	"github.com/pkg/errors"
